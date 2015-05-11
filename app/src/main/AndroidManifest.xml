@@ -3,11 +3,26 @@
     package="com.capstone.bookkeepingproto2" >
 
     <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <receiver android:name=".PrivateHouseKeeping.WidgetTest.MyCustomWidget" android:label="YUMJI widget test">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_configuration" />
+        </receiver>
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -24,7 +39,34 @@
         <activity
             android:name=".SigninActivity"
             android:label="@string/app_name" >
-
+        </activity>
+        <activity
+            android:name=".PrivateHouseKeeping.CalendarTest.CalendarActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".PrivateHouseKeeping.InputTest.InputActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".PrivateHouseKeeping.InputTest.InsertResultActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".PrivateHouseKeeping.SpeechTest.SpeechTestActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".PrivateHouseKeeping.WidgetTest.UpperLimitActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".PrivateHouseKeeping.WidgetTest.NewLimitActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".PrivateHouseKeeping.ConfirmTest.ConfirmActivity"
+            android:label="@string/app_name" >
         </activity>
     </application>
 
