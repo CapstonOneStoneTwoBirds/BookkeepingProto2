@@ -12,8 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.capstone.bookkeepingproto2.PrivateHouseKeeping.Private.PrivateActivity;
 import com.capstone.bookkeepingproto2.HttpClient.HttpClient;
+import com.capstone.bookkeepingproto2.PrivateHouseKeeping.ConfirmTest.ConfirmActivity;
 import com.capstone.bookkeepingproto2.R;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -68,7 +68,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     @Override
                     public void onSuccess(int i, Header[] headers, byte[] bytes) {
                         System.out.println("Success test here");
-                        Intent intent = new Intent(getApplicationContext(), PrivateActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), ConfirmActivity.class);
                         startActivity(intent);
                     }
 
@@ -89,7 +89,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             startActivity(intent);
         }
         else if( v.getId() == R.id.pass_btn){
-            Intent intent = new Intent(getApplicationContext(), PrivateActivity.class);
+            Intent intent = new Intent(getApplicationContext(), ConfirmActivity.class);
             startActivity(intent);
         }
         else {
@@ -128,7 +128,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
                         System.out.println("Success test here");
                         if (new String(bytes).equals("1")) {
-                            Intent intent = new Intent(getApplicationContext(), PrivateActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), ConfirmActivity.class);
                             startActivity(intent);
                         } else {
                             // toast로 아이디or패스워드 틀림 알리기
