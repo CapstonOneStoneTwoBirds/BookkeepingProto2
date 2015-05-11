@@ -11,9 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import onestonetwobirds.capstontest1.CalendarTest.CalendarActivity;
-import onestonetwobirds.capstontest1.Control.MyDatabase;
-import onestonetwobirds.capstontest1.R;
+import com.capstone.bookkeepingproto2.PrivateHouseKeeping.CalendarTest.CalendarActivity;
+import com.capstone.bookkeepingproto2.PrivateHouseKeeping.Control.MyDatabase;
+import com.capstone.bookkeepingproto2.R;
 
 /**
  * Created by YeomJi on 15. 4. 28..
