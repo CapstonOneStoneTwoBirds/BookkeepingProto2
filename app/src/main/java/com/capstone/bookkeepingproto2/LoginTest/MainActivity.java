@@ -128,7 +128,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
                         System.out.println("Success test here");
                         if (new String(bytes).equals("1")) {
-                            Intent intent = new Intent(getApplicationContext(), ConfirmActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), SelectActivity.class);
                             startActivity(intent);
                         } else {
                             // toast로 아이디or패스워드 틀림 알리기
