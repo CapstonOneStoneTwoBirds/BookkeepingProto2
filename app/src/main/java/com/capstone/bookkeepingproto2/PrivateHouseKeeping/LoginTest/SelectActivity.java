@@ -7,8 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.capstone.bookkeepingproto2.PrivateHouseKeeping.Group.GroupActivity;
-import com.capstone.bookkeepingproto2.PrivateHouseKeeping.LoginTest.MainActivity;
+import com.capstone.bookkeepingproto2.PrivateHouseKeeping.GroupHouseKeeping.GroupActivity;
 import com.capstone.bookkeepingproto2.PrivateHouseKeeping.Private.PrivateActivity;
 import com.capstone.bookkeepingproto2.R;
 
