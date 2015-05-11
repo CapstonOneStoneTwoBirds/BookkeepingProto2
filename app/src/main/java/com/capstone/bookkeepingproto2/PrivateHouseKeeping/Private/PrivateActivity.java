@@ -1,4 +1,4 @@
-package com.capstone.bookkeepingproto2;
+package com.capstone.bookkeepingproto2.PrivateHouseKeeping.Private;
 
 import android.app.Activity;
 import android.content.Intent;

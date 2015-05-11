@@ -1,4 +1,4 @@
-package com.capstone.bookkeepingproto2;
+package com.capstone.bookkeepingproto2.PrivateHouseKeeping.LoginTest;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.capstone.bookkeepingproto2.PrivateHouseKeeping.Group.GroupActivity;
+import com.capstone.bookkeepingproto2.PrivateHouseKeeping.LoginTest.MainActivity;
+import com.capstone.bookkeepingproto2.PrivateHouseKeeping.Private.PrivateActivity;
 
 /**
  * Created by New on 2015-05-11.

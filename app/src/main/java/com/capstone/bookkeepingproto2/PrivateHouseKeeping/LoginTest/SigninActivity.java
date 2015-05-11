@@ -1,4 +1,4 @@
-package com.capstone.bookkeepingproto2;
+package com.capstone.bookkeepingproto2.PrivateHouseKeeping.LoginTest;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.capstone.bookkeepingproto2.PrivateHouseKeeping.HttpClient.HttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.apache.http.Header;
@@ -56,7 +57,7 @@ public class SigninActivity extends Activity{
                         public void onSuccess(int i, Header[] headers, byte[] bytes) {
                             System.out.println("onSuccess called.");
                             String code = new String(bytes);
-                            switch(code){
+                            switch (code) {
                                 // failed
                                 case "1":
                                     System.out.println("1 called");
