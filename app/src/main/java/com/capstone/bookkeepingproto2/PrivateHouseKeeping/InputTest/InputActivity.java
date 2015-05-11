@@ -26,6 +26,8 @@ import com.capstone.bookkeepingproto2.R;
  */
 public class InputActivity extends Activity {
 
+    String store, product, cost;
+
     EditText accountTxt, moneyTxt, contentTxt;
     Button insertContentBtn;
     String Y, Mo, D, H, Mi, Cate;
@@ -38,6 +40,11 @@ public class InputActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.input_main);
+
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+
 
         accountTxt = (EditText) findViewById(R.id.account);
         moneyTxt = (EditText) findViewById(R.id.money);
@@ -138,6 +145,27 @@ public class InputActivity extends Activity {
         });
 
         // 날짜 스피너 끝
+
+
+        //account --> 지출 제목, content --> 현금, 카드 등 거래 방식으로 일시적 교환. 디비 설계 다시 해야 됨
+        //또한 day에서 년 월 일 분 초로 쪼개야 댐
+        // 카테고리 디비에도 기타 항목을 추가해야 됨. 우선 기타 입력은 saving에 간다고 하자.
+
+
+        if (!(bundle == null)) {
+            System.out.println("bundle is not null!");
+            accountTxt.setText(bundle.getString("store"));
+            moneyTxt.setText(bundle.getString("cost"));
+            switch (bundle.getString("product")) {
+                case "의류": spinner.setSelection(1); break;
+                case "주거": spinner.setSelection(2); break;
+                case "여가": spinner.setSelection(3); break;
+                case "교통": spinner.setSelection(4); break;
+                case "저축": spinner.setSelection(5); break;
+                case "기타": spinner.setSelection(5); break;
+                default: break;
+            }
+        }
 
 
         MyDatabase myDB = new MyDatabase(this);

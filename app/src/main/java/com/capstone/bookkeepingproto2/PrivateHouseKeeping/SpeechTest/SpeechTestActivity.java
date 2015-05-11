@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.capstone.bookkeepingproto2.PrivateHouseKeeping.InputTest.InputActivity;
 import com.capstone.bookkeepingproto2.R;
 
 import java.util.ArrayList;
@@ -83,7 +84,7 @@ public class SpeechTestActivity extends Activity {
                     cost = 0;
                     isCost = 0;
 
-                    result.setText(arrResult.get(i) + "\n");
+                    //result.setText(arrResult.get(i) + "\n"); ---> 출력 부분
                     //result.setText(arrResult.get(i));
 
 
@@ -170,6 +171,16 @@ public class SpeechTestActivity extends Activity {
 
                         vectorCost.removeAllElements();
                         vectorProduct.removeAllElements();
+
+                        Bundle bundle = new Bundle();
+                        bundle.putString("store", trueResultProduct);
+                        bundle.putString("product", product);
+                        bundle.putString("cost", String.valueOf(trueResultCost));
+
+                        Intent intent = new Intent(getApplicationContext(), InputActivity.class);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                        finish();
                     }
                 }
 
