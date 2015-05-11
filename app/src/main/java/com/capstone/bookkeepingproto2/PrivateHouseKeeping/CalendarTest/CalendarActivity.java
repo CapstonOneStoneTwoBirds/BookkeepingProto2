@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.capstone.bookkeepingproto2.PrivateHouseKeeping.Control.MyDatabase;
+import com.capstone.bookkeepingproto2.R;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
@@ -20,8 +22,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import onestonetwobirds.capstontest1.Control.MyDatabase;
-import onestonetwobirds.capstontest1.R;
 
 
 /**

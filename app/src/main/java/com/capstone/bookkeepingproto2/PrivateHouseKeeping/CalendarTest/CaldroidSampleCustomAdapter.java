@@ -12,13 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.capstone.bookkeepingproto2.R;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidGridAdapter;
 
 import java.util.HashMap;
 
 import hirondelle.date4j.DateTime;
-import onestonetwobirds.capstontest1.R;
 
 public class CaldroidSampleCustomAdapter extends CaldroidGridAdapter {
 

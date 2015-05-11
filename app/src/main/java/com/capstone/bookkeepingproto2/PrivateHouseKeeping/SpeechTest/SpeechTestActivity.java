@@ -10,13 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.capstone.bookkeepingproto2.R;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Locale;
 import java.util.StringTokenizer;
 import java.util.Vector;
-
-import onestonetwobirds.capstontest1.R;
 
 /**
  * Created by YeomJi on 15. 4. 30..

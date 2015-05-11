@@ -16,7 +16,8 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
-import onestonetwobirds.capstontest1.R;
+import com.capstone.bookkeepingproto2.R;
+
 
 /**
  * Created by YeomJi on 15. 5. 6..

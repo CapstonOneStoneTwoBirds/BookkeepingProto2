@@ -8,8 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import onestonetwobirds.capstontest1.Control.MyDatabase;
-import onestonetwobirds.capstontest1.R;
+import com.capstone.bookkeepingproto2.PrivateHouseKeeping.Control.MyDatabase;
+import com.capstone.bookkeepingproto2.R;
+
 
 /**
  * Created by YeomJi on 15. 5. 11..
@@ -18,7 +19,6 @@ public class ConfirmActivity extends Activity {
 
     TextView CTotal, CFood, CPlay, CHouse, CTraffic, CSaving;
     Button OK;
-    //String total, food, play, house, traffic, saving;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +49,6 @@ public class ConfirmActivity extends Activity {
 
 
         while (cursor.moveToNext()) {
-            /*
-            String date = ;
-            String account = cursor.getString(accountCol);
-            String category = cursor.getString(categoryCol);
-            String content = cursor.getString(contentCol);
-            String content = cursor.getString(contentCol);
-            String content = cursor.getString(contentCol);
-            */
 
             CTotal.setText(cursor.getString(totalCol));
             CFood.setText(cursor.getString(foodCol));
