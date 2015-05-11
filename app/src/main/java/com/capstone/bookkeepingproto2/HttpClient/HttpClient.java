@@ -1,4 +1,4 @@
-package com.capstone.bookkeepingproto2.PrivateHouseKeeping.HttpClient;
+package com.capstone.bookkeepingproto2.HttpClient;
 
 import android.content.Context;
 

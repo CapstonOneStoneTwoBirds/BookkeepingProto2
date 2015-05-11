@@ -1,4 +1,4 @@
-package com.capstone.bookkeepingproto2.PrivateHouseKeeping.LoginTest;
+package com.capstone.bookkeepingproto2.LoginTest;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.capstone.bookkeepingproto2.PrivateHouseKeeping.Private.PrivateActivity;
-import com.capstone.bookkeepingproto2.PrivateHouseKeeping.HttpClient.HttpClient;
+import com.capstone.bookkeepingproto2.HttpClient.HttpClient;
 import com.capstone.bookkeepingproto2.R;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
