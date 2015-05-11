@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        android:layout_margin="20sp"
+        android:typeface="monospace"
+        android:text="New Upper Limit Test" />
+
+
+    <Spinner
+        android:id="@+id/upperTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:prompt="@string/uppertitleSelect" />
+
+    <EditText
+        android:id="@+id/upperGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:hint="Goal"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/upperOK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:background="#111111"
+        android:layout_margin="10sp"
+        android:text="OK" />
+
+</LinearLayout>
