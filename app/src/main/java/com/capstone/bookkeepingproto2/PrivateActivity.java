@@ -14,18 +14,12 @@ public class PrivateActivity extends Activity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.indivisual_main);
-        Button clear_btn = (Button)findViewById(R.id.auto_btn);
-        clear_btn.setOnClickListener(this);
+        setContentView(R.layout.);
     }
 
     @Override
     public void onClick(View v) {
-        SharedPreferences mPreference = getSharedPreferences("myInfo", MODE_PRIVATE);
-        SharedPreferences.Editor editor = mPreference.edit();
-        editor.clear();
-        editor.commit();
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
+
+        }
     }
 }

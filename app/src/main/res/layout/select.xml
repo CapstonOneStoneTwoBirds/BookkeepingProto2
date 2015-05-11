@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Private"
+        android:id="@+id/private_sel_btn"
+        android:layout_x="66dp"
+        android:layout_y="291dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GROUP"
+        android:id="@+id/group_sel_btn"
+        android:layout_x="213dp"
+        android:layout_y="291dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="자동로그인해제"
+        android:id="@+id/auto_uncheck_btn"
+        android:layout_x="128dp"
+        android:layout_y="131dp" />
+</AbsoluteLayout>
