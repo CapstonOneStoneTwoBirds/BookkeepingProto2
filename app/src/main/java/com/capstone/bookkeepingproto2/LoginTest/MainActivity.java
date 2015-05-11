@@ -89,7 +89,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             startActivity(intent);
         }
         else if( v.getId() == R.id.pass_btn){
-            Intent intent = new Intent(getApplicationContext(), ConfirmActivity.class);
+            Intent intent = new Intent(getApplicationContext(), SelectActivity.class);
             startActivity(intent);
         }
         else {
