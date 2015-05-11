@@ -241,25 +241,30 @@ public class InputActivity extends Activity {
                     db.execSQL("UPDATE moneybook SET house = house + " + moneyTxt.getText().toString());
                     db.execSQL("UPDATE checkamount SET acc = acc + " + moneyTxt.getText().toString() + " WHERE title = 'house';");
                 } else if (Cate.equals("traffic")) {
-                    db.execSQL("UPDATE moneybook SET house = traffic + " + moneyTxt.getText().toString());
+                    db.execSQL("UPDATE moneybook SET traffic = traffic + " + moneyTxt.getText().toString());
                     db.execSQL("UPDATE checkamount SET acc = acc + " + moneyTxt.getText().toString() + " WHERE title = 'traffic';");
                 } else if (Cate.equals("saving")) {
-                    db.execSQL("UPDATE moneybook SET house = saving + " + moneyTxt.getText().toString());
+                    db.execSQL("UPDATE moneybook SET saving = saving + " + moneyTxt.getText().toString());
                     db.execSQL("UPDATE checkamount SET acc = acc + " + moneyTxt.getText().toString() + " WHERE title = 'saving';");
                 }
 
                 db.execSQL("UPDATE moneybook SET total = total + " + moneyTxt.getText().toString());
                 db.execSQL("UPDATE checkamount SET acc = acc + " + moneyTxt.getText().toString() + " WHERE title = 'total';");
 
-                sql = "SELECT * FROM checkamount WHERE title LIKE ? ";
-                cursor = db.rawQuery(sql, new String[]{MyCustomWidget.titleWidget});
+                try {
+                    sql = "SELECT * FROM checkamount WHERE title LIKE ? ";
+                    cursor = db.rawQuery(sql, new String[]{MyCustomWidget.titleWidget});
 
-                int accCol = cursor.getColumnIndex("acc");
+                    int accCol = cursor.getColumnIndex("acc");
+                    while (cursor.moveToNext()) {
+                        accCheck = cursor.getInt(accCol);
+                        System.out.println("Confirm3 --------> " + MyCustomWidget.titleWidget + "    " + accCheck);
+                        getContent(MyCustomWidget.titleWidget, MyCustomWidget.goalWidget, accCheck);
+                    }
+                } catch (IllegalArgumentException e) { }
 
-                while (cursor.moveToNext()) { accCheck = cursor.getInt(accCol); }
 
-                System.out.println("Confirm3 --------> " + MyCustomWidget.titleWidget +"    "+accCheck);
-                getContent(MyCustomWidget.titleWidget, MyCustomWidget.goalWidget, accCheck);
+
 
                 db.close();
 

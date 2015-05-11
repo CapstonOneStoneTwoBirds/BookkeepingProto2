@@ -173,24 +173,19 @@ public class CalendarActivity extends FragmentActivity implements OnClickListene
 
             @Override
             public void onChangeMonth(int month, int year) { // 월 옮겼을 때
-                String text = "month: " + month + " year: " + year;
-                Toast.makeText(getApplicationContext(), text,
-                        Toast.LENGTH_SHORT).show();
+                //String text = "month: " + month + " year: " + year;
+                //Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onLongClickDate(Date date, View view) { // 특정 날짜 오래 클릭했을 때
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
-                Toast.makeText(getApplicationContext(),
-                        "Long click " + formatter.format(date),
-                        Toast.LENGTH_SHORT).show();
+                //SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
+                //Toast.makeText(getApplicationContext(), "Long click " + formatter.format(date), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onCaldroidViewCreated() { // 캘린더 실행했을 때
-                Toast.makeText(getApplicationContext(),
-                        "Caldroid view is created",
-                        Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Caldroid view is created", Toast.LENGTH_SHORT).show();
             }
 
         };
