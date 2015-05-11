@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.capstone.bookkeepingproto2.PrivateHouseKeeping.HttpClient.HttpClient;
+import com.capstone.bookkeepingproto2.R;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.apache.http.Header;
