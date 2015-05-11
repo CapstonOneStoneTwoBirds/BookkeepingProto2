@@ -30,21 +30,19 @@ public class SelectActivity extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.private_sel_btn){
-            System.out.println("User onClik1");
             startActivity(new Intent(getApplicationContext(), ConfirmActivity.class));
         }
         else if(v.getId() == R.id.group_sel_btn){
             startActivity(new Intent(getApplicationContext(), GroupActivity.class));
         }
-        else{
-
-        }
-        System.out.println("User onClik2");
+        else if(v.getId() == R.id.auto_uncheck_btn){
             SharedPreferences mPreference = getSharedPreferences("myInfo", MODE_PRIVATE);
             SharedPreferences.Editor editor = mPreference.edit();
             editor.clear();
             editor.commit();
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
+        }
+
         }
     }
