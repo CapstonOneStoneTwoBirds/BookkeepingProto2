@@ -63,7 +63,7 @@ public class InsertResultActivity extends Activity {
         Cursor cursor = db.rawQuery(sql, new String[]{DayBB});
 
         int recordCount = cursor.getCount();
-        Log.d(tag, "cursor count : " + recordCount + "\n");
+        Log.d(tag, "cursor count insertResult : " + recordCount + "\n");
 
 
         int dateCol = cursor.getColumnIndex("date");
@@ -96,7 +96,7 @@ public class InsertResultActivity extends Activity {
         MoneyTxt1.setText(MoneyBB);
         ContentTxt1.setText(ContentBB);
 
-        Toast.makeText(InsertResultActivity.this, MoneyBB,
+        Toast.makeText(InsertResultActivity.this, recordCount+"",
                 Toast.LENGTH_SHORT).show();
 
 
