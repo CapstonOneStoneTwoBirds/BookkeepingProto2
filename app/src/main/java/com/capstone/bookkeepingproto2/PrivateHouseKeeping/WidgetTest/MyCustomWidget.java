@@ -12,8 +12,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import onestonetwobirds.capstontest1.Control.MyDatabase;
-import onestonetwobirds.capstontest1.R;
+import com.capstone.bookkeepingproto2.PrivateHouseKeeping.Control.MyDatabase;
+import com.capstone.bookkeepingproto2.R;
+
 
 /**
  * Created by YeomJi on 15. 4. 30..
