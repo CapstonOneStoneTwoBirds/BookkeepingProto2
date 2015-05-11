@@ -68,7 +68,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     @Override
                     public void onSuccess(int i, Header[] headers, byte[] bytes) {
                         System.out.println("Success test here");
-                        Intent intent = new Intent(getApplicationContext(), ConfirmActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), SelectActivity.class);
                         startActivity(intent);
                     }
 
