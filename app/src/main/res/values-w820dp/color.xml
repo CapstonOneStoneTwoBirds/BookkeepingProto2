@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="pressed1">#ff3333</color>
+    <color name="pressed2">#ff3333</color>
+
+    <color name="focused1">#ff3333</color>
+    <color name="focused2">#ff3333</color>
+
+    <color name="another1">#ff3333</color>
+    <color name="another2">#ff3333</color>
+
+    <color name="anotherchange1">#ff3355</color>
+    <color name="anotherchange2">#ff3355</color>
+
+    <color name="text1">#ffffff</color>
+    <color name="text2">#ffffff</color>
+
+    <color name="default1">#ff5433</color>
+    <color name="default2">#ff5433</color>
+
+    <color name="stroke">#00000000</color>
+
+</resources>

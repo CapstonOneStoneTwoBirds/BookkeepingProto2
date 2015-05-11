@@ -1,6 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">BookkeepingProto2</string>
-
+    <string name="app_name">TEST</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="categorySelect">Please select Category!</string>
+    <string name="uppertitleSelect">Please select upper title!</string>
+    <string name="yearSelect">Please select Year!</string>
+    <string name="monthSelect">Please select Month!</string>
+    <string name="dateSelect">Please select Date!</string>
+    <string name="hourSelect">Please select Hour!</string>
+    <string name="minuteSelect">Please select Minute!</string>
 </resources>
