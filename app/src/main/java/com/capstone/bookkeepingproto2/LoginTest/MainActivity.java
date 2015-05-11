@@ -96,17 +96,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
             EditText email = (EditText) findViewById(R.id.email_login_edt);
             EditText pw = (EditText) findViewById(R.id.pw_login_edt);
-            CheckBox auto = (CheckBox)findViewById(R.id.auto_check);
 
-            // Auto Login Using SharedPreference
-            if(auto.isChecked()) {
-                SharedPreferences mPreference = getSharedPreferences("myInfo", MODE_PRIVATE);
-                SharedPreferences.Editor editor = mPreference.edit();
-                editor.putString("email", email.getText().toString());
-                editor.putString("pw", pw.getText().toString());
-                editor.commit();
-            }
-            //
+            SharedPreferences mPreference = getSharedPreferences("myInfo", MODE_PRIVATE);
+            SharedPreferences.Editor editor = mPreference.edit();
+            editor.putString("email", email.getText().toString());
+            editor.putString("pw", pw.getText().toString());
+            editor.commit();
 
             JSONObject login_info = new JSONObject();
             try {

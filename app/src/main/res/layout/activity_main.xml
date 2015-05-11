@@ -36,16 +36,7 @@ android:layout_height="wrap_content"
 android:inputType="textPassword"
 android:hint="Password" />
 
-<CheckBox
-android:id="@+id/auto_check"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="자동 로그인"
-android:textSize="18dp"
-android:textStyle="bold"
-android:layout_gravity="right" />
-
-<Button
+    <Button
 android:layout_width="fill_parent"
 android:layout_height="50dp"
 android:id="@+id/login_btn"

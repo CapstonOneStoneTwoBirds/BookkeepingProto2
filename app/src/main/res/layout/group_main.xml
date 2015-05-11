@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-</LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group2"
+        android:id="@+id/group2_btn"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="108dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/group1_btn"
+        android:layout_toEndOf="@+id/group1_btn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group1"
+        android:id="@+id/group1_btn"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="66dp"
+        android:layout_marginStart="66dp"
+        android:layout_alignTop="@+id/group2_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group3"
+        android:id="@+id/group3_btn"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/group1_btn"
+        android:layout_alignStart="@+id/group1_btn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Group"
+        android:id="@+id/newgroup_btn"
+        android:layout_alignTop="@+id/group3_btn"
+        android:layout_alignLeft="@+id/group2_btn"
+        android:layout_alignStart="@+id/group2_btn" />
+
+</RelativeLayout>
