@@ -33,10 +33,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PrivateHouseKeeping.Private.PrivateActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
             android:name=".LoginTest.SigninActivity"
             android:label="@string/app_name" >
         </activity>
