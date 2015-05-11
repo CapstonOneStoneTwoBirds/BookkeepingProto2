@@ -23,6 +23,8 @@ public class SelectActivity extends Activity implements View.OnClickListener{
         clear_btn.setOnClickListener(this);
         Button pri = (Button)findViewById(R.id.private_sel_btn);
         Button gro = (Button)findViewById(R.id.group_sel_btn);
+        pri.setOnClickListener(this);
+        gro.setOnClickListener(this);
     }
 
     @Override
