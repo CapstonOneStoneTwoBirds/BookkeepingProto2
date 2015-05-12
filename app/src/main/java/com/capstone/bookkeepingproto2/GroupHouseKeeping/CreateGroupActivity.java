@@ -11,17 +11,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.capstone.bookkeepingproto2.HttpClient.HttpClient;
-import com.capstone.bookkeepingproto2.LoginTest.MainActivity;
-import com.capstone.bookkeepingproto2.LoginTest.SigninActivity;
 import com.capstone.bookkeepingproto2.R;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.apache.http.Header;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.protocol.HTTP;
-import org.json.JSONObject;
 
 /**
  * Created by New on 2015-05-12.
