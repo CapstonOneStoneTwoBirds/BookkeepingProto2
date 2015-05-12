@@ -183,7 +183,7 @@ public class InputActivity extends Activity {
                     case "기타": spinner.setSelection(5); break;
                     default: break;
                 }
-            }
+            }// ocr commit
             if (bundle.containsKey("content")) contentTxt.setText(bundle.getString("content"));
         }
 
