@@ -21,7 +21,7 @@ import com.capstone.bookkeepingproto2.R;
 public class InsertResultActivity extends Activity {
 
     static String DayBB,AccountBB,CategroyBB, ContentBB;
-    static String MoneyBB;
+    static int MoneyBB;
     TextView DayTxt1, AccountTxt1, CategroyTxt1, MoneyTxt1, ContentTxt1;
     TextView DayTxt2, AccountTxt2, CategroyTxt2, MoneyTxt2, ContentTxt2;
     Button gotocalendarBtn;
@@ -38,8 +38,8 @@ public class InsertResultActivity extends Activity {
         DayBB = bundle.getString("date");
         AccountBB = bundle.getString("account");
         CategroyBB = bundle.getString("category");
-        //MoneyBB = bundle.getInt("money");
-        MoneyBB = bundle.getString("money");
+        MoneyBB = bundle.getInt("money");
+        //MoneyBB = bundle.getString("money");
         ContentBB = bundle.getString("content");
 
         DayTxt1 = (TextView) findViewById(R.id.dayB);
@@ -56,48 +56,13 @@ public class InsertResultActivity extends Activity {
 
         gotocalendarBtn = (Button) findViewById(R.id.gotocalendar);
 
-        MyDatabase myDB = new MyDatabase(this);
-        final SQLiteDatabase db = myDB.getWritableDatabase();
-
-        String sql = "SELECT * FROM daymoney WHERE date LIKE ?";
-        Cursor cursor = db.rawQuery(sql, new String[]{DayBB});
-
-        int recordCount = cursor.getCount();
-        Log.d(tag, "cursor count insertResult : " + recordCount + "\n");
-
-
-        int dateCol = cursor.getColumnIndex("date");
-        int accountCol = cursor.getColumnIndex("account");
-        int categoryCol = cursor.getColumnIndex("category");
-        int moneyCol = cursor.getColumnIndex("money");
-        int contentCol = cursor.getColumnIndex("content");
-
-
-        while (cursor.moveToNext()) {
-            String date = cursor.getString(dateCol);
-            String account = cursor.getString(accountCol);
-            String category = cursor.getString(categoryCol);
-            int money = cursor.getInt(moneyCol);
-            String content = cursor.getString(contentCol);
-
-            DayTxt2.setText(date);
-            AccountTxt2.setText(account);
-            CategroyTxt2.setText(category);
-            MoneyTxt2.setText(money+"");
-            ContentTxt2.setText(content);
-
-        }
-
-        cursor.close();
 
         DayTxt1.setText(DayBB);
         AccountTxt1.setText(AccountBB);
         CategroyTxt1.setText(CategroyBB);
-        MoneyTxt1.setText(MoneyBB);
+        MoneyTxt1.setText(String.valueOf(MoneyBB));
         ContentTxt1.setText(ContentBB);
 
-        Toast.makeText(InsertResultActivity.this, recordCount+"",
-                Toast.LENGTH_SHORT).show();
 
 
         gotocalendarBtn.setOnClickListener(new View.OnClickListener() {

@@ -1,6 +1,7 @@
 package com.capstone.bookkeepingproto2.PrivateHouseKeeping.CalendarTest;
 
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -8,11 +9,13 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.capstone.bookkeepingproto2.PrivateHouseKeeping.Control.MyDatabase;
+import com.capstone.bookkeepingproto2.PrivateHouseKeeping.InputTest.InsertResultActivity;
 import com.capstone.bookkeepingproto2.R;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
@@ -93,7 +96,7 @@ public class CalendarActivity extends FragmentActivity implements OnClickListene
             @Override
             public void onSelectDate(Date date, View view) { // 특정 날짜 클릭했을 때
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
-                String subDate = formatter.format(date).substring(8,10);
+                final String subDate = formatter.format(date).substring(8,10);
                 //Toast.makeText(getApplicationContext(), subDate, Toast.LENGTH_SHORT).show();
 
                 ArrayAdapter<String> adapterInsert = new ArrayAdapter<String>(getApplicationContext(), R.layout.calendertext, arrListInsert);
@@ -102,40 +105,6 @@ public class CalendarActivity extends FragmentActivity implements OnClickListene
                 arrListInsert.clear();
                 ListView listViewInsert = (ListView)findViewById(R.id.insertList);
 
-                /*
-                //ListViewFruit
-                SQLiteDatabase db = openOrCreateDatabase("CapstonTest1.db", Context.MODE_PRIVATE, null);
-                ListView listView = (ListView)findViewById(R.id.upperLimittList);
-                Cursor cursor = db.rawQuery("SELECT rowid _id, * FROM daymoney", null);
-
-                if(cursor.getCount() != 0) {
-                    Toast.makeText(getApplicationContext(), cursor.getCount() + "", Toast.LENGTH_LONG).show();
-                    cursor.moveToFirst();
-                    String[] from = new String[]{"date", "account", "category", "money"};
-                    int[] to = new int[]{R.id.lf_cal_date, R.id.lf_cal_account, R.id.lf_cal_category, R.id.lf_cal_money};
-                    final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                            listView.getContext(),
-                            R.layout.calendar_day_list,
-                            cursor,
-                            from,
-                            to
-                    );
-
-                    listView.setAdapter(adapter);
-                } else Toast.makeText(getApplicationContext(), "No DATA", Toast.LENGTH_LONG).show();
-
-                db.close();
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View v, int position,
-                                            long id) {
-                        // 디테일한 정보 화면으로 넘어감
-
-                    }
-                });
-
-*/
 
                 String sql = "SELECT * FROM daymoney WHERE date LIKE ?";
                 Cursor cursor = db.rawQuery(sql, new String[]{subDate});
@@ -143,33 +112,52 @@ public class CalendarActivity extends FragmentActivity implements OnClickListene
                 int recordCount = cursor.getCount();
                 Log.d(TAG, "cursor count : " + recordCount + "\n");
 
-                int dateCol = cursor.getColumnIndex("date");
                 int accountCol = cursor.getColumnIndex("account");
                 int categoryCol = cursor.getColumnIndex("category");
                 int moneyCol = cursor.getColumnIndex("money");
                 int contentCol = cursor.getColumnIndex("content");
 
-                int count = 0;
-
+                final String account[] = new String[recordCount];
+                final String category[] = new String[recordCount];
+                final int money[] = new int[recordCount];
+                final String content[] = new String[recordCount];
 
                 while (cursor.moveToNext()) {
-                    String Insertdate = cursor.getString(dateCol);
-                    String account = cursor.getString(accountCol);
-                    String category = cursor.getString(categoryCol);
-                    int money = cursor.getInt(moneyCol);
-                    String content = cursor.getString(contentCol);
+                    // 0->1->2->......
+                    account[cursor.getPosition()] = cursor.getString(accountCol);
+                    category[cursor.getPosition()] = cursor.getString(categoryCol);
+                    money[cursor.getPosition()] = cursor.getInt(moneyCol);
+                    content[cursor.getPosition()] = cursor.getString(contentCol);
 
-                    result = Insertdate +" / "+ account +" / "+ category +" / "+ money +" / "+ content;
+                    result = account[cursor.getPosition()] +" / "+ category[cursor.getPosition()] +" / "+ money[cursor.getPosition()] +" / "+ content[cursor.getPosition()];
                     arrListInsert.add(result);
-                    count++;
 
                 }
                 Toast.makeText(getApplicationContext(), subDate+"", Toast.LENGTH_SHORT).show();
-                // 커서가 나타낼 경우가 여러 가지일 때를 해결하셈 ( 같은 날에 여러 개의 가계 입력 )
-
 
                 listViewInsert.setAdapter(adapterInsert);
+
+                listViewInsert.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        //position == id
+                        //System.out.println("cursor ----> "+account[position]+" / "+category[position]+" / "+money[position]+" / "+content[position]);
+
+                        Bundle bundle = new Bundle();
+                        bundle.putString("date", subDate);
+                        bundle.putString("account", account[position]);
+                        bundle.putString("category", category[position]);
+                        bundle.putInt("money", money[position]);
+                        bundle.putString("content", content[position]);
+
+                        Intent intent = new Intent(getApplicationContext(), InsertResultActivity.class);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
             }
+
 
             @Override
             public void onChangeMonth(int month, int year) { // 월 옮겼을 때
