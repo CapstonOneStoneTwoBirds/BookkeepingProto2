@@ -152,6 +152,7 @@ public class InputActivity extends Activity {
         // 카테고리 디비에도 기타 항목을 추가해야 됨. 우선 기타 입력은 saving에 간다고 하자.
 
 
+        /*
         if (!(bundle == null)) {
             System.out.println("bundle is not null!");
             accountTxt.setText(bundle.getString("store"));
@@ -165,6 +166,25 @@ public class InputActivity extends Activity {
                 case "기타": spinner.setSelection(5); break;
                 default: break;
             }
+        }*/
+
+        if (!(bundle == null)) {
+            System.out.println("bundle is not null!");
+            if (bundle.containsKey("date")) spinner.setSelection(Integer.valueOf(bundle.getString("date")));
+            if (bundle.containsKey("store")) accountTxt.setText(bundle.getString("store"));
+            if (bundle.containsKey("cost")) moneyTxt.setText(bundle.getString("cost"));
+            if (bundle.containsKey("product")) {
+                switch (bundle.getString("product")) {
+                    case "의류": spinner.setSelection(1); break;
+                    case "주거": spinner.setSelection(2); break;
+                    case "여가": spinner.setSelection(3); break;
+                    case "교통": spinner.setSelection(4); break;
+                    case "저축": spinner.setSelection(5); break;
+                    case "기타": spinner.setSelection(5); break;
+                    default: break;
+                }
+            }
+            if (bundle.containsKey("content")) contentTxt.setText(bundle.getString("content"));
         }
 
 

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.capstone.bookkeepingproto2.OCR.abbyy.ocrsdk.android.OCRActivity;
 import com.capstone.bookkeepingproto2.PrivateHouseKeeping.CalendarTest.CalendarActivity;
 import com.capstone.bookkeepingproto2.PrivateHouseKeeping.Control.MyDatabase;
 import com.capstone.bookkeepingproto2.PrivateHouseKeeping.InputTest.InputActivity;
@@ -84,6 +85,7 @@ public class ConfirmActivity  extends ActionBarActivity {
         menu.add(0, 1, 0, "Insert Test");
         menu.add(0, 2, 0, "Speech Test");
         menu.add(0, 3, 0, "Widget Test");
+        menu.add(0, 4, 0, "OCR Test");
         return true;
     }
 
@@ -106,6 +108,10 @@ public class ConfirmActivity  extends ActionBarActivity {
                 break;
             case 3:
                 intent = new Intent(getApplicationContext(), UpperLimitActivity.class);
+                startActivity(intent);
+                break;
+            case 4:
+                intent = new Intent(getApplicationContext(), OCRActivity.class);
                 startActivity(intent);
                 break;
             default:
