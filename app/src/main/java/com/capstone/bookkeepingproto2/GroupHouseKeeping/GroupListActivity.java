@@ -27,20 +27,11 @@ public class GroupListActivity extends Activity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.group_main);
+        setContentView(R.layout.group_list);
 
         Button newgroup = (Button)findViewById(R.id.newgroup_btn);
         newgroup.setOnClickListener(this);
-        final TextView tv = (TextView)findViewById(R.id.group1_tv);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), GroupActivity.class);
-                intent.putExtra("groupname", tv.getText().toString());
-                startActivity(intent);
 
-            }
-        });
         // Get GroupLists
         try {
             SharedPreferences mPreference;
@@ -57,13 +48,25 @@ public class GroupListActivity extends Activity implements View.OnClickListener 
 
                         if( jsonarr.length() != 0 ){
                             System.out.println(jsonarr.get(0));
-                            JSONObject got = new JSONObject(jsonarr.get(0).toString());
+                            final JSONObject got = new JSONObject(jsonarr.get(0).toString());
+
+                            final TextView tv = (TextView)findViewById(R.id.group1_tv);
+                            tv.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(getApplicationContext(), GroupMainActivity.class);
+                                    try {
+                                        intent.putExtra("_id", got.get("_id").toString());
+                                    }catch( JSONException e){ }
+                                    startActivity(intent);
+
+                                }
+                            });
 
                             tv.setText(got.get("groupname").toString());
+
                         }
-                    } catch (JSONException e) {
-                        System.out.println(e);
-                    }
+                    } catch (JSONException e) { System.out.println(e); }
                 }
 
                 @Override
