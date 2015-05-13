@@ -24,17 +24,14 @@ public class OCRResultsActivity extends Activity {
 	String outputPath;
     String year, month, day, price, way;
 	TextView tv;
-    Button OCROK;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-        OCROK = (Button)findViewById(R.id.ocr_OK_btn);
-		
 		tv = new TextView(this);
 		setContentView(tv);
-		
+
 		String imageUrl = "unknown";
 		
 		Bundle extras = getIntent().getExtras();
@@ -45,37 +42,6 @@ public class OCRResultsActivity extends Activity {
 		
 		// Starting recognition process
 		new AsyncProcessTask(this).execute(imageUrl, outputPath);
-
-        Bundle bundle = new Bundle();
-        bundle.putString("date", day);
-        bundle.putString("cost", price);
-        bundle.putString("content", way);
-
-        Intent intent = new Intent(getApplicationContext(), InputActivity.class);
-        intent.putExtras(bundle);
-        startActivity(intent);
-        finish();
-
-        /*
-        OCROK.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 우선은 day만 bundle에 넣음
-                // 상호는 차후에 dundle에 추가
-                Bundle bundle = new Bundle();
-                bundle.putString("date", day);
-                bundle.putString("cost", price);
-                bundle.putString("content", way);
-
-                Intent intent = new Intent(getApplicationContext(), InputActivity.class);
-                intent.putExtras(bundle);
-                startActivity(intent);
-                finish();
-
-            }
-        });
-        */
-
 
 	}
 
@@ -303,8 +269,21 @@ public class OCRResultsActivity extends Activity {
 		}
 
 		public void run() {
-			tv.append( _message + "\n" );
+            tv.append( _message + "\n" );
 			setContentView( tv );
+
+            Bundle bundle = new Bundle();
+            bundle.putString("year", year);
+            bundle.putString("month", month);
+            bundle.putString("date", day);
+            bundle.putString("cost", price);
+            bundle.putString("content", way);
+
+            Intent intent = new Intent(getApplicationContext(), InputActivity.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+            finish();
+
 		}
 
 
