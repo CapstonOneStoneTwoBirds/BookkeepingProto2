@@ -30,21 +30,23 @@
 
 
             <TextView
+                android:id="@+id/group1_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="185dp"
-                android:text=""
+                android:text="group1_tv"
                 android:textSize="30sp"
                 android:clickable="true"
-                android:id="@+id/group1_tv"
+                android:gravity="center"
                 android:layout_weight="0.92" />
 
             <TextView
+                android:id="@+id/group2_tv"
                 android:layout_width="181dp"
                 android:layout_height="193dp"
-                android:text=""
+                android:text="group2_tv"
                 android:textSize="30sp"
-                android:clickable="true"
-                android:id="@+id/group2_tv" />
+                android:gravity="center"
+                android:clickable="true" />
         </LinearLayout>
 
         <LinearLayout
@@ -56,21 +58,23 @@
 
 
             <TextView
+                android:id="@+id/group3_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text=""
+                android:text="group3_tv"
                 android:textSize="30sp"
                 android:clickable="true"
-                android:id="@+id/group3_tv"
+                android:gravity="center"
                 android:layout_weight="0.51" />
 
             <TextView
+                android:id="@+id/group4_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text=""
+                android:text="group4_tv"
                 android:textSize="30sp"
                 android:clickable="true"
-                android:id="@+id/group4_tv"
+                android:gravity="center"
                 android:layout_weight="0.48" />
         </LinearLayout>
     </LinearLayout>

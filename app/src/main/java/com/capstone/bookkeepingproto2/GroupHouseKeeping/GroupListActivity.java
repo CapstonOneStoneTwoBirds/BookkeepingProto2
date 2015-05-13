@@ -44,13 +44,25 @@ public class GroupListActivity extends Activity implements View.OnClickListener 
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     try {
                         JSONArray jsonarr = new JSONArray(new String(responseBody));
-                        //System.out.println("json result : " + jsonarr);
+                        System.out.println("json result : " + jsonarr);
+
+                        final TextView tv = (TextView)findViewById(R.id.group1_tv);
 
                         if( jsonarr.length() != 0 ){
-                            System.out.println(jsonarr.get(0));
-                            final JSONObject got = new JSONObject(jsonarr.get(0).toString());
+                            //System.out.println(jsonarr.get(0));
+                            //final JSONObject got = new JSONObject(jsonarr.get(0).toString());
 
-                            final TextView tv = (TextView)findViewById(R.id.group1_tv);
+                            for (int i=0;jsonarr.get(i)!=null;i++) {
+                                System.out.println(jsonarr.get(i));
+                                final JSONObject got = new JSONObject(jsonarr.get(i).toString());
+                                System.out.println("json check : " + i);
+
+                                tv.setText(got.get("groupname").toString());
+                            }
+
+
+
+                            /*
                             tv.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -64,6 +76,7 @@ public class GroupListActivity extends Activity implements View.OnClickListener 
                             });
 
                             tv.setText(got.get("groupname").toString());
+                            */
 
                         }
                     } catch (JSONException e) { System.out.println(e); }
