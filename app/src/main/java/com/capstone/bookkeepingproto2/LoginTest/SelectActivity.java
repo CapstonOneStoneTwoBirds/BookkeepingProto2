@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.capstone.bookkeepingproto2.GroupHouseKeeping.GroupActivity;
+import com.capstone.bookkeepingproto2.GroupHouseKeeping.GroupListActivity;
 import com.capstone.bookkeepingproto2.PrivateHouseKeeping.ConfirmTest.ConfirmActivity;
 import com.capstone.bookkeepingproto2.R;
 
@@ -33,7 +33,7 @@ public class SelectActivity extends Activity implements View.OnClickListener{
             startActivity(new Intent(getApplicationContext(), ConfirmActivity.class));
         }
         else if(v.getId() == R.id.group_sel_btn){
-            startActivity(new Intent(getApplicationContext(), GroupActivity.class));
+            startActivity(new Intent(getApplicationContext(), GroupListActivity.class));
         }
         else if(v.getId() == R.id.auto_uncheck_btn){
             SharedPreferences mPreference = getSharedPreferences("myInfo", MODE_PRIVATE);

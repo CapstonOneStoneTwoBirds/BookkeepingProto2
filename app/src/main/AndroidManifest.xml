@@ -43,6 +43,10 @@
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:name=".GroupHouseKeeping.GroupListActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
             android:name=".GroupHouseKeeping.GroupActivity"
             android:label="@string/app_name" >
         </activity>

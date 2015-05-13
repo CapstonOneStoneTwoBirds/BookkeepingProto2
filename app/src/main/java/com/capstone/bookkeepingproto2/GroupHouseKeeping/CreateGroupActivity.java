@@ -18,6 +18,7 @@ import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
 
 /**
+ * YoungHoonKim
  * Created by New on 2015-05-12.
  */
 public class CreateGroupActivity extends Activity{
@@ -58,7 +59,7 @@ public class CreateGroupActivity extends Activity{
                                 // Create Success
                                 System.out.println("Success Here   2");
 
-                                Intent intent = new Intent(getApplicationContext(), GroupActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), GroupListActivity.class);
                                 startActivity(intent);
                                 break;
 
