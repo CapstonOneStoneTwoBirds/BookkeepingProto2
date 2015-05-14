@@ -25,27 +25,28 @@ import org.json.JSONObject;
  * YoungHoonKim
  * Created by New on 2015-05-13.
  */
-public class GroupArticleActivity extends ActionBarActivity implements View.OnClickListener{
+public class GroupArticleActivity extends ActionBarActivity {
+
+    String _id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_article_list);
 
-        final String _id = getIntent().getStringExtra("_id");
+        _id = getIntent().getStringExtra("_id");
         System.out.println("_id : " + _id);
 
         Button newarticle = (Button)findViewById(R.id.newarticle_btn);
-        Button newannounce = (Button)findViewById(R.id.newannounce_btn);
-        Button newmember = (Button)findViewById(R.id.newmember_btn);
-        //Button articlelist = (Button)findViewById(R.id.articlelist_btn);
-        //Button announcelist = (Button)findViewById(R.id.announcelist_btn);
-        //Button memberlist = (Button)findViewById(R.id.memberlist_btn);
-        newarticle.setOnClickListener(this);
-        newannounce.setOnClickListener(this);
-        newmember.setOnClickListener(this);
-        //articlelist.setOnClickListener(this);
-        //announcelist.setOnClickListener(this);
-        //memberlist.setOnClickListener(this);
+        newarticle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), WriteArticleActivity.class);
+                intent.putExtra("_id", _id);
+                startActivity(intent);
+            }
+        });
+
 
         RequestParams param = new RequestParams();
         param.put("groupid", _id);
@@ -79,46 +80,6 @@ public class GroupArticleActivity extends ActionBarActivity implements View.OnCl
     }
 
     @Override
-    public void onClick(View v) {
-        String _id = getIntent().getStringExtra("_id");
-        Intent intent;
-        switch( v.getId() ){
-            case R.id.newarticle_btn:
-                intent = new Intent(getApplicationContext(), WriteArticleActivity.class);
-                intent.putExtra("_id", _id);
-                startActivity(intent);
-                break;
-
-            case R.id.newannounce_btn:
-                intent = new Intent(getApplicationContext(), WriteAnnounceActivity.class);
-                intent.putExtra("_id", _id);
-                startActivity(intent);
-                break;
-
-            case R.id.newmember_btn:
-                intent = new Intent(getApplicationContext(), WriteMemberActivity.class);
-                intent.putExtra("_id", _id);
-                startActivity(intent);
-                break;
-/*
-            case R.id.articlelist_btn:
-
-                break;
-
-            case R.id.announcelist_btn:
-
-                break;
-
-            case R.id.memberlist_btn:
-                intent = new Intent(getApplicationContext(), GetMemberListActivity.class);
-                intent.putExtra("_id", _id);
-                startActivity(intent);
-                break;
-*/
-        }
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, 0, 0, "Group Announce");
         menu.add(0, 1, 0, "Group Member");
@@ -132,11 +93,15 @@ public class GroupArticleActivity extends ActionBarActivity implements View.OnCl
             case 0:
                 //처리할 이벤트
                 intent = new Intent(getApplicationContext(), GroupAnnounceActivity.class);
+                intent.putExtra("_id", _id);
                 startActivity(intent);
+                finish();
                 break;
             case 1:
                 intent = new Intent(getApplicationContext(), GroupMemberActivity.class);
+                intent.putExtra("_id", _id);
                 startActivity(intent);
+                finish();
                 break;
             default:
                 break;

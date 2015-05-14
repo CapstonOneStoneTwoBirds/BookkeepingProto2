@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.capstone.bookkeepingproto2.R;
 
@@ -13,10 +15,26 @@ import com.capstone.bookkeepingproto2.R;
  */
 public class GroupMemberActivity extends ActionBarActivity {
 
+    String _id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_member_list);
+
+        _id = getIntent().getStringExtra("_id");
+        System.out.println("_id : " + _id);
+
+        Button newmember = (Button)findViewById(R.id.newmember_btn);
+
+        newmember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), WriteArticleActivity.class);
+                intent.putExtra("_id", _id);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -33,11 +51,15 @@ public class GroupMemberActivity extends ActionBarActivity {
             case 0:
                 //처리할 이벤트
                 intent = new Intent(getApplicationContext(), GroupArticleActivity.class);
+                intent.putExtra("_id", _id);
                 startActivity(intent);
+                finish();
                 break;
             case 1:
                 intent = new Intent(getApplicationContext(), GroupAnnounceActivity.class);
+                intent.putExtra("_id", _id);
                 startActivity(intent);
+                finish();
                 break;
             default:
                 break;

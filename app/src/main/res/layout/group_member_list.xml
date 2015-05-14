@@ -35,7 +35,7 @@
 
 
         <ListView
-            android:id="@+id/group_article_list"
+            android:id="@+id/group_member_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </ListView>

@@ -51,6 +51,14 @@
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:name=".GroupHouseKeeping.GroupAnnounceActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".GroupHouseKeeping.GroupMemberActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
         android:name=".GroupHouseKeeping.WriteArticleActivity"
         android:label="@string/app_name" >
         </activity>

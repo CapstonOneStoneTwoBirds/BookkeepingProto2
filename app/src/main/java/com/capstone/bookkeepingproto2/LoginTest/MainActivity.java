@@ -43,6 +43,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             login.setOnClickListener(this);
             Button pass = (Button) findViewById(R.id.pass_btn);
             pass.setOnClickListener(this);
+            TextView sign_in = (TextView) findViewById(R.id.sign_btn);
+            sign_in.setOnClickListener(this);
         }
         else {
 
