@@ -48,19 +48,19 @@
         </activity>
         <activity
             android:name=".GroupHouseKeeping.GroupArticleActivity"
-            android:label="@string/app_name" >
+            android:label="Group Article" >
         </activity>
         <activity
             android:name=".GroupHouseKeeping.GroupAnnounceActivity"
-            android:label="@string/app_name" >
+            android:label="Group Announce" >
         </activity>
         <activity
             android:name=".GroupHouseKeeping.GroupMemberActivity"
-            android:label="@string/app_name" >
+            android:label="Group Member" >
         </activity>
         <activity
-        android:name=".GroupHouseKeeping.WriteArticleActivity"
-        android:label="@string/app_name" >
+            android:name=".GroupHouseKeeping.WriteArticleActivity"
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name=".GroupHouseKeeping.WriteAnnounceActivity"
