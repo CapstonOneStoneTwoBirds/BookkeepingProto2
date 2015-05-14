@@ -14,6 +14,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.apache.http.Header;
+import org.json.JSONArray;
 
 /**
  * Created by YeomJi on 15. 5. 14..
@@ -43,17 +44,20 @@ public class GroupMemberActivity extends ActionBarActivity {
         HttpClient.post("getMemberList/", param, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                System.out.println("getMemberList Success 1");
-                System.out.println("members : " + new String(responseBody));
-                switch (new String(responseBody)) {
-                    case "1":
-                        System.out.println("getMemberList error");
-                        break;
+                try {
+                    JSONArray jsonarr = new JSONArray(new String(responseBody));
+                    System.out.println("getMemberList Success 1");
+                    System.out.println("members : " + jsonarr);
+                    switch (new String(responseBody)) {
+                        case "1":
+                            System.out.println("getMemberList error");
+                            break;
 
-                    case "2":
-                        System.out.println("getMemberList Success 2");
-                        break;
-                }
+                        case "2":
+                            System.out.println("getMemberList Success 2");
+                            break;
+                    }
+                }catch(Exception e){}
             }
 
             @Override
