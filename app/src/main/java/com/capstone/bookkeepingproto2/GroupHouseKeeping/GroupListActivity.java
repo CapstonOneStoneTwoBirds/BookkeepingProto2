@@ -73,10 +73,11 @@ public class GroupListActivity extends Activity implements View.OnClickListener 
                                 tvlist.get(i).setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                        Intent intent = new Intent(getApplicationContext(), GroupMainActivity.class);
+                                        Intent intent = new Intent(getApplicationContext(), GroupArticleActivity.class);
                                         try {
                                             intent.putExtra("_id", got.get("_id").toString());
-                                        }catch( JSONException e){ }
+                                        } catch (JSONException e) {
+                                        }
                                         startActivity(intent);
                                     }
                                 });

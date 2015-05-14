@@ -5,6 +5,9 @@ import android.app.DownloadManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -22,7 +25,7 @@ import org.json.JSONObject;
  * YoungHoonKim
  * Created by New on 2015-05-13.
  */
-public class GroupMainActivity extends Activity implements View.OnClickListener{
+public class GroupArticleActivity extends ActionBarActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,20 +37,20 @@ public class GroupMainActivity extends Activity implements View.OnClickListener{
         Button newarticle = (Button)findViewById(R.id.newarticle_btn);
         Button newannounce = (Button)findViewById(R.id.newannounce_btn);
         Button newmember = (Button)findViewById(R.id.newmember_btn);
-        Button articlelist = (Button)findViewById(R.id.articlelist_btn);
-        Button announcelist = (Button)findViewById(R.id.announcelist_btn);
-        Button memberlist = (Button)findViewById(R.id.memberlist_btn);
+        //Button articlelist = (Button)findViewById(R.id.articlelist_btn);
+        //Button announcelist = (Button)findViewById(R.id.announcelist_btn);
+        //Button memberlist = (Button)findViewById(R.id.memberlist_btn);
         newarticle.setOnClickListener(this);
         newannounce.setOnClickListener(this);
         newmember.setOnClickListener(this);
-        articlelist.setOnClickListener(this);
-        announcelist.setOnClickListener(this);
-        memberlist.setOnClickListener(this);
+        //articlelist.setOnClickListener(this);
+        //announcelist.setOnClickListener(this);
+        //memberlist.setOnClickListener(this);
 
         RequestParams param = new RequestParams();
-        param.put("_id", _id);
+        param.put("groupid", _id);
 
-        HttpClient.post("getGroupArticle/", param, new AsyncHttpResponseHandler() {
+        HttpClient.post("getArticleList/", param, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 try {
@@ -97,7 +100,7 @@ public class GroupMainActivity extends Activity implements View.OnClickListener{
                 intent.putExtra("_id", _id);
                 startActivity(intent);
                 break;
-
+/*
             case R.id.articlelist_btn:
 
                 break;
@@ -111,6 +114,39 @@ public class GroupMainActivity extends Activity implements View.OnClickListener{
                 intent.putExtra("_id", _id);
                 startActivity(intent);
                 break;
+*/
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(0, 0, 0, "Group Announce");
+        menu.add(0, 1, 0, "Group Member");
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()) {
+            case 0:
+                //처리할 이벤트
+                intent = new Intent(getApplicationContext(), GroupAnnounceActivity.class);
+                startActivity(intent);
+                break;
+            case 1:
+                intent = new Intent(getApplicationContext(), GroupMemberActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

@@ -47,7 +47,7 @@ public class WriteMemberActivity extends Activity{
                             case "2":
                                 System.out.println("write member Success");
 
-                                Intent intent = new Intent(getApplicationContext(), GroupMainActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), GroupArticleActivity.class);
                                 intent.putExtra("_id", getIntent().getStringExtra("_id"));
                                 startActivity(intent);
 

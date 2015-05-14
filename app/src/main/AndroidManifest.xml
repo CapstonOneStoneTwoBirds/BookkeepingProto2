@@ -47,7 +47,7 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".GroupHouseKeeping.GroupMainActivity"
+            android:name=".GroupHouseKeeping.GroupArticleActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
