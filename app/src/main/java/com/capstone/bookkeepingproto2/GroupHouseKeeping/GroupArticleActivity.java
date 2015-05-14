@@ -104,13 +104,13 @@ public class GroupArticleActivity extends ActionBarActivity {
             case 0:
                 //처리할 이벤트
                 intent = new Intent(getApplicationContext(), GroupAnnounceActivity.class);
-                intent.putExtra("_id", _id);
+                intent.putExtra("groupid", _id);
                 startActivity(intent);
                 finish();
                 break;
             case 1:
                 intent = new Intent(getApplicationContext(), GroupMemberActivity.class);
-                intent.putExtra("_id", _id);
+                intent.putExtra("groupid", _id);
                 startActivity(intent);
                 finish();
                 break;

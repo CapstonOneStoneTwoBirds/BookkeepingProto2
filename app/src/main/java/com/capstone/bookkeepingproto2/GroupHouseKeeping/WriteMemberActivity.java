@@ -30,8 +30,9 @@ public class WriteMemberActivity extends Activity{
                 EditText emailedt = (EditText)findViewById(R.id.member_email_edt);
                 String email = emailedt.getText().toString();
 
+                final String _id = getIntent().getStringExtra("groupid");
                 RequestParams param = new RequestParams();
-                param.put("groupid", getIntent().getStringExtra("groupid"));
+                param.put("groupid", _id);
                 param.put("email", email);
 
                 HttpClient.post("writeMember/", param, new AsyncHttpResponseHandler() {
@@ -48,7 +49,7 @@ public class WriteMemberActivity extends Activity{
                                 System.out.println("write member Success");
 
                                 Intent intent = new Intent(getApplicationContext(), GroupArticleActivity.class);
-                                intent.putExtra("groupid", getIntent().getStringExtra("groupid"));
+                                intent.putExtra("groupid", _id);
                                 startActivity(intent);
                                 finish();
 

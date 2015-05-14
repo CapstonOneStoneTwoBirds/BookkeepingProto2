@@ -33,7 +33,7 @@ public class GroupMemberActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_member_list);
 
-        String groupid = getIntent().getStringExtra("groupid");
+        _id = getIntent().getStringExtra("groupid");
 
         Button addmember = (Button)findViewById(R.id.newmember_btn);
         addmember.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +44,7 @@ public class GroupMemberActivity extends ActionBarActivity {
             }
         });
         RequestParams param = new RequestParams();
-        param.add("groupid", groupid);
+        param.add("groupid", _id);
 
         HttpClient.post("getMemberList/", param, new AsyncHttpResponseHandler() {
             @Override
@@ -98,13 +98,13 @@ public class GroupMemberActivity extends ActionBarActivity {
             case 0:
                 //처리할 이벤트
                 intent = new Intent(getApplicationContext(), GroupArticleActivity.class);
-                intent.putExtra("_id", _id);
+                intent.putExtra("groupid", _id);
                 startActivity(intent);
                 finish();
                 break;
             case 1:
                 intent = new Intent(getApplicationContext(), GroupAnnounceActivity.class);
-                intent.putExtra("_id", _id);
+                intent.putExtra("groupid", _id);
                 startActivity(intent);
                 finish();
                 break;
