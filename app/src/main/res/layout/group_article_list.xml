@@ -26,22 +26,51 @@ tools:context=".JoinActivity">
                 android:layout_margin="5sp" />
 
             <Button
-                android:id="@+id/newanounce_btn"
+                android:id="@+id/newannounce_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Anounce"
+                android:text="New Announce"
                 android:layout_gravity="center"
                 android:layout_margin="5sp" />
 
             <Button
-                android:id="@+id/memberconfirm_btn"
+                android:id="@+id/newmember_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Member Confirm"
                 android:layout_gravity="center"
                 android:layout_margin="5sp" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10sp">
 
+            <Button
+                android:id="@+id/articlelist_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Article List"
+                android:layout_gravity="center"
+                android:layout_margin="5sp" />
+
+            <Button
+                android:id="@+id/announcelist_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Announcement List"
+                android:layout_gravity="center"
+                android:layout_margin="5sp" />
+
+            <Button
+                android:id="@+id/memberlist_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Member List"
+                android:layout_gravity="center"
+                android:layout_margin="5sp" />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

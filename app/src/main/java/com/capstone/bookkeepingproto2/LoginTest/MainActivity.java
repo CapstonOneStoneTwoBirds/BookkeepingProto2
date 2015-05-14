@@ -32,52 +32,50 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        /*
-        AsyncHttpClient client = HttpClient.getInstance();
-        PersistentCookieStore myCookieStore = new PersistentCookieStore(this);
-        client.setCookieStore(myCookieStore);
-        */// 자동로그인 부분 Using Cookie.
-
-        TextView signin = (TextView) findViewById(R.id.sign_btn);
-        signin.setOnClickListener(this);
-        Button login = (Button) findViewById(R.id.login_btn);
-        login.setOnClickListener(this);
-        Button pass = (Button) findViewById(R.id.pass_btn);
-        pass.setOnClickListener(this);
 
         SharedPreferences mPreference;
         mPreference = getSharedPreferences("myInfo", MODE_PRIVATE);
 
-        if (mPreference.getString("email", "") != "") {
-            // JSONObject
-            JSONObject login_info = new JSONObject();
-            try {
-                login_info.put("email", mPreference.getString("email", ""));
-                login_info.put("pw", mPreference.getString("pw", ""));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if( mPreference.getString("email", "") == "" ) {
+            setContentView(R.layout.activity_main);
 
-            // Post Request
-            try {
-                StringEntity entity = new StringEntity(login_info.toString());
-                entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+            Button login = (Button) findViewById(R.id.login_btn);
+            login.setOnClickListener(this);
+            Button pass = (Button) findViewById(R.id.pass_btn);
+            pass.setOnClickListener(this);
+        }
+        else {
 
-                HttpClient.post(this, "login/", entity, new AsyncHttpResponseHandler() {
-                    @Override
-                    public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                        System.out.println("Success test here");
-                        Intent intent = new Intent(getApplicationContext(), SelectActivity.class);
-                        startActivity(intent);
-                    }
+            if (mPreference.getString("email", "") != "") {
+                // JSONObject
+                JSONObject login_info = new JSONObject();
+                try {
+                    login_info.put("email", mPreference.getString("email", ""));
+                    login_info.put("pw", mPreference.getString("pw", ""));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
-                    @Override
-                    public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                        System.out.println("Fail here");
-                    }
-                });
-            } catch (UnsupportedEncodingException e) {
+                // Post Request
+                try {
+                    StringEntity entity = new StringEntity(login_info.toString());
+                    entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+
+                    HttpClient.post(this, "login/", entity, new AsyncHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                            System.out.println("Success test here");
+                            Intent intent = new Intent(getApplicationContext(), SelectActivity.class);
+                            startActivity(intent);
+                        }
+
+                        @Override
+                        public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                            System.out.println("Fail here");
+                        }
+                    });
+                } catch (UnsupportedEncodingException e) {
+                }
             }
         }
     }
