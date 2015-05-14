@@ -8,7 +8,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.capstone.bookkeepingproto2.HttpClient.HttpClient;
 import com.capstone.bookkeepingproto2.R;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 /**
  * Created by YeomJi on 15. 5. 14..
@@ -33,6 +40,31 @@ public class GroupAnnounceActivity extends ActionBarActivity {
                 Intent intent = new Intent(getApplicationContext(), WriteAnnounceActivity.class);
                 intent.putExtra("_id", _id);
                 startActivity(intent);
+            }
+        });
+
+        RequestParams param = new RequestParams();
+        param.put("groupid", _id);
+
+        HttpClient.post("getAnnounceList/", param, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                try {
+                    if (responseBody != null) {
+                        JSONArray announces = new JSONArray(new String(responseBody));
+                        System.out.println("Announces : " + announces);
+                    } else {
+                        System.out.println("Here Checker");
+                    }
+
+                } catch (JSONException e) {
+                    System.out.println(e);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                System.out.println("error message : " + error);
             }
         });
     }

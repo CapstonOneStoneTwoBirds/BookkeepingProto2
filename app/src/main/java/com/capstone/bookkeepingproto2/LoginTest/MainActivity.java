@@ -73,6 +73,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
                         @Override
                         public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                            //System.out.println("bytes : " + new String(bytes));
+                            System.out.println("error : " + throwable.getMessage());
                             System.out.println("Fail here");
                         }
                     });

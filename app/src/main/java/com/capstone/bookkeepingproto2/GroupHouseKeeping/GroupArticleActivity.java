@@ -42,7 +42,7 @@ public class GroupArticleActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), WriteArticleActivity.class);
-                intent.putExtra("_id", _id);
+                intent.putExtra("groupid", _id);
                 startActivity(intent);
             }
         });
@@ -73,10 +73,6 @@ public class GroupArticleActivity extends ActionBarActivity {
                 System.out.println("error message : " + error);
             }
         });
-
-
-
-
     }
 
     @Override

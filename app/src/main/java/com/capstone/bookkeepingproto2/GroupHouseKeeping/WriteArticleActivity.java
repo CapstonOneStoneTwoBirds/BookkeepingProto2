@@ -35,7 +35,7 @@ public class WriteArticleActivity extends Activity {
                 SharedPreferences mPreference = getSharedPreferences("myInfo", MODE_PRIVATE);
 
                 RequestParams param = new RequestParams();
-                param.put("groupid", getIntent().getStringExtra("_id"));
+                param.put("groupid", getIntent().getStringExtra("groupid"));
                 param.put("writer", mPreference.getString("email",""));
                 param.put("title", title.getText().toString());
                 param.put("content", content.getText().toString());

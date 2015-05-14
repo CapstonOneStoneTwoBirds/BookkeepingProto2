@@ -8,7 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.capstone.bookkeepingproto2.HttpClient.HttpClient;
 import com.capstone.bookkeepingproto2.R;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.apache.http.Header;
 
 /**
  * Created by YeomJi on 15. 5. 14..
@@ -22,17 +27,38 @@ public class GroupMemberActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_member_list);
 
-        _id = getIntent().getStringExtra("_id");
-        System.out.println("_id : " + _id);
+        String groupid = getIntent().getStringExtra("_id");
 
-        Button newmember = (Button)findViewById(R.id.newmember_btn);
-
-        newmember.setOnClickListener(new View.OnClickListener() {
+        Button addmember = (Button)findViewById(R.id.newmember_btn);
+        addmember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), WriteArticleActivity.class);
-                intent.putExtra("_id", _id);
+                Intent intent = new Intent(getApplicationContext(), WriteMemberActivity.class);
                 startActivity(intent);
+            }
+        });
+        RequestParams param = new RequestParams();
+        param.add("groupid", groupid);
+
+        HttpClient.post("getMemberList/", param, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                System.out.println("getMemberList Success 1");
+                System.out.println("members : " + new String(responseBody));
+                switch (new String(responseBody)) {
+                    case "1":
+                        System.out.println("getMemberList error");
+                        break;
+
+                    case "2":
+                        System.out.println("getMemberList Success 2");
+                        break;
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                System.out.println("error message 1 : " + error);
             }
         });
     }
