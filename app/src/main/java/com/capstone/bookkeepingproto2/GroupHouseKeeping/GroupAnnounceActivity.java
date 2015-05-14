@@ -6,7 +6,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.capstone.bookkeepingproto2.HttpClient.HttpClient;
 import com.capstone.bookkeepingproto2.R;
@@ -16,6 +18,9 @@ import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * Created by YeomJi on 15. 5. 14..
@@ -29,7 +34,7 @@ public class GroupAnnounceActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_announce_list);
 
-        _id = getIntent().getStringExtra("_id");
+        _id = getIntent().getStringExtra("groupid");
         System.out.println("_id : " + _id);
 
         Button newannounce = (Button)findViewById(R.id.newannounce_btn);
@@ -38,7 +43,7 @@ public class GroupAnnounceActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), WriteAnnounceActivity.class);
-                intent.putExtra("_id", _id);
+                intent.putExtra("groupid", _id);
                 startActivity(intent);
             }
         });
@@ -52,6 +57,16 @@ public class GroupAnnounceActivity extends ActionBarActivity {
                 try {
                     if (responseBody != null) {
                         JSONArray announces = new JSONArray(new String(responseBody));
+
+                        ArrayList<String> arrListInsert = new ArrayList<String>();
+                        ArrayAdapter<String> adapterInsert = new ArrayAdapter<String>(getApplicationContext(), R.layout.calendertext, arrListInsert);
+                        ListView listViewInsert = (ListView) findViewById(R.id.group_announce_list);
+                        //arrListInsert.add(result);
+                        for (int i = 0; i < announces.length(); i++) {
+                            JSONObject got = new JSONObject(announces.get(i).toString());
+                            arrListInsert.add(got.get("title").toString() + " / " + got.get("content").toString());
+                        }
+                        listViewInsert.setAdapter(adapterInsert);
                         System.out.println("Announces : " + announces);
                     } else {
                         System.out.println("Here Checker");

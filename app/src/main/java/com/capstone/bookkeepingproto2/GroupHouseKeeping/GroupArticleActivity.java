@@ -9,7 +9,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.capstone.bookkeepingproto2.HttpClient.HttpClient;
 import com.capstone.bookkeepingproto2.R;
@@ -20,6 +22,8 @@ import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * YoungHoonKim
@@ -34,8 +38,8 @@ public class GroupArticleActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_article_list);
 
-        _id = getIntent().getStringExtra("_id");
-        System.out.println("_id : " + _id);
+        _id = getIntent().getStringExtra("groupid");
+        System.out.println("groupid : " + _id);
 
         Button newarticle = (Button)findViewById(R.id.newarticle_btn);
         newarticle.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +61,17 @@ public class GroupArticleActivity extends ActionBarActivity {
                 try {
                     if(responseBody != null){
                         JSONArray articles = new JSONArray(new String(responseBody));
+
+                        ArrayList<String> arrListInsert = new ArrayList<String>();
+                        ArrayAdapter<String> adapterInsert = new ArrayAdapter<String>(getApplicationContext(), R.layout.calendertext, arrListInsert);
+                        ListView listViewInsert = (ListView)findViewById(R.id.group_article_list);
+                        //arrListInsert.add(result);
+                        for (int i=0;i < articles.length();i++) {
+                            JSONObject got = new JSONObject(articles.get(i).toString());
+                            arrListInsert.add(got.get("title").toString()+" / "+got.get("price").toString()+" / "+got.get("content").toString());
+                        }
+                        listViewInsert.setAdapter(adapterInsert);
+
                         System.out.println("Articles : " + articles);
                     }
                     else{

@@ -75,7 +75,7 @@ public class GroupListActivity extends Activity implements View.OnClickListener 
                                     public void onClick(View v) {
                                         Intent intent = new Intent(getApplicationContext(), GroupArticleActivity.class);
                                         try {
-                                            intent.putExtra("_id", got.get("_id").toString());
+                                            intent.putExtra("groupid", got.get("_id").toString());
                                         } catch (JSONException e) {
                                         }
                                         startActivity(intent);

@@ -23,7 +23,6 @@ public class InsertResultActivity extends Activity {
     static String DayBB,AccountBB,CategroyBB, ContentBB;
     static int MoneyBB;
     TextView DayTxt1, AccountTxt1, CategroyTxt1, MoneyTxt1, ContentTxt1;
-    TextView DayTxt2, AccountTxt2, CategroyTxt2, MoneyTxt2, ContentTxt2;
     Button gotocalendarBtn;
 
     private final String tag = "InsertResultActivity";
@@ -47,12 +46,6 @@ public class InsertResultActivity extends Activity {
         CategroyTxt1 = (TextView) findViewById(R.id.categoryB);
         MoneyTxt1 = (TextView) findViewById(R.id.moneyB);
         ContentTxt1 = (TextView) findViewById(R.id.contentB);
-
-        DayTxt2 = (TextView) findViewById(R.id.dayS);
-        AccountTxt2 = (TextView) findViewById(R.id.accountS);
-        CategroyTxt2 = (TextView) findViewById(R.id.categoryS);
-        MoneyTxt2 = (TextView) findViewById(R.id.moneyS);
-        ContentTxt2 = (TextView) findViewById(R.id.contentS);
 
         gotocalendarBtn = (Button) findViewById(R.id.gotocalendar);
 

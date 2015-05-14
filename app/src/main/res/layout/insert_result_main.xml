@@ -14,7 +14,7 @@
         android:paddingTop="5sp"
         android:paddingBottom="5sp"
         android:typeface="monospace"
-        android:text="Bundle result" />
+        android:text="Confirm result" />
 
 
     <TextView
@@ -66,59 +66,6 @@
         android:layout_marginBottom="5sp"
         android:padding="4sp"></LinearLayout>
 
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:paddingTop="5sp"
-        android:paddingBottom="5sp"
-        android:typeface="monospace"
-        android:text="SQLite result" />
-
-
-    <TextView
-        android:id="@+id/dayS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5sp"
-        android:textSize="20sp"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/accountS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5sp"
-        android:textSize="20sp"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/categoryS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5sp"
-        android:textSize="20sp"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/moneyS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5sp"
-        android:textSize="20sp"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/contentS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5sp"
-        android:textSize="20sp"
-        android:inputType="textPersonName" />
-
     <Button
         android:id="@+id/gotocalendar"
         android:layout_width="match_parent"
@@ -126,6 +73,7 @@
         android:textColor="#ffffff"
         android:gravity="center"
         android:background="#111111"
+        android:layout_gravity="bottom"
         android:layout_margin="10sp"
         android:text="Go to Calendar" />
 </LinearLayout>

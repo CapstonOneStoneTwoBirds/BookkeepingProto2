@@ -6,7 +6,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.capstone.bookkeepingproto2.HttpClient.HttpClient;
 import com.capstone.bookkeepingproto2.R;
@@ -15,6 +17,9 @@ import com.loopj.android.http.RequestParams;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * Created by YeomJi on 15. 5. 14..
@@ -28,7 +33,7 @@ public class GroupMemberActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_member_list);
 
-        String groupid = getIntent().getStringExtra("_id");
+        String groupid = getIntent().getStringExtra("groupid");
 
         Button addmember = (Button)findViewById(R.id.newmember_btn);
         addmember.setOnClickListener(new View.OnClickListener() {
@@ -45,9 +50,20 @@ public class GroupMemberActivity extends ActionBarActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 try {
-                    JSONArray jsonarr = new JSONArray(new String(responseBody));
+                    JSONArray member = new JSONArray(new String(responseBody));
+
+                    ArrayList<String> arrListInsert = new ArrayList<String>();
+                    ArrayAdapter<String> adapterInsert = new ArrayAdapter<String>(getApplicationContext(), R.layout.calendertext, arrListInsert);
+                    ListView listViewInsert = (ListView) findViewById(R.id.group_member_list);
+                    //arrListInsert.add(result);
+                    for (int i = 0; i < member.length(); i++) {
+                        JSONObject got = new JSONObject(member.get(i).toString());
+                        arrListInsert.add(got.get("ownership").toString() + " / " + got.get("member").toString());
+                    }
+                    listViewInsert.setAdapter(adapterInsert);
+
                     System.out.println("getMemberList Success 1");
-                    System.out.println("members : " + jsonarr);
+                    System.out.println("members : " + member);
                     switch (new String(responseBody)) {
                         case "1":
                             System.out.println("getMemberList error");
@@ -57,7 +73,8 @@ public class GroupMemberActivity extends ActionBarActivity {
                             System.out.println("getMemberList Success 2");
                             break;
                     }
-                }catch(Exception e){}
+                } catch (Exception e) {
+                }
             }
 
             @Override

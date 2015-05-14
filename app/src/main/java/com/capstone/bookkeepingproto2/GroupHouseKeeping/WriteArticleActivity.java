@@ -56,8 +56,9 @@ public class WriteArticleActivity extends Activity {
                                 System.out.println("write article Success");
 
                                 Intent intent = new Intent(getApplicationContext(), GroupArticleActivity.class);
-                                intent.putExtra("_id", getIntent().getStringExtra("_id"));
+                                intent.putExtra("groupid", getIntent().getStringExtra("groupid"));
                                 startActivity(intent);
+                                finish();
 
                                 break;
                         }

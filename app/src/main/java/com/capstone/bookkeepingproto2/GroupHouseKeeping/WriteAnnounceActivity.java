@@ -37,7 +37,7 @@ public class WriteAnnounceActivity extends Activity{
                 System.out.println("title 1: " + titleedt.getText().toString());
 
                 RequestParams param = new RequestParams();
-                param.put("groupid", getIntent().getStringExtra("_id"));
+                param.put("groupid", getIntent().getStringExtra("groupid"));
                 param.put("title", titleedt.getText().toString());
                 param.put("content", contentedt.getText().toString());
 
@@ -55,9 +55,10 @@ public class WriteAnnounceActivity extends Activity{
                             case "2":
                                 System.out.println("write announce Success");
 
-                                Intent intent = new Intent(getApplicationContext(), GroupArticleActivity.class);
-                                intent.putExtra("_id", getIntent().getStringExtra("_id"));
+                                Intent intent = new Intent(getApplicationContext(), GroupAnnounceActivity.class);
+                                intent.putExtra("groupid", getIntent().getStringExtra("groupid"));
                                 startActivity(intent);
+                                finish();
 
                                 break;
                         }
