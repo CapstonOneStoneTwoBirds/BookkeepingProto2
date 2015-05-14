@@ -40,9 +40,10 @@ public class GroupMemberActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), WriteMemberActivity.class);
+                intent.putExtra("groupid",_id);
                 startActivity(intent);
             }
-        });
+        });// proto
         RequestParams param = new RequestParams();
         param.add("groupid", _id);
 

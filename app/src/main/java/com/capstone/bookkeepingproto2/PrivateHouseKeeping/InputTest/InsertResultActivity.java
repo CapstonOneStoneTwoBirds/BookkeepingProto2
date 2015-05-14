@@ -21,7 +21,7 @@ import com.capstone.bookkeepingproto2.R;
 public class InsertResultActivity extends Activity {
 
     static String DayBB,AccountBB,CategroyBB, ContentBB;
-    static int MoneyBB;
+    static String MoneyBB;
     TextView DayTxt1, AccountTxt1, CategroyTxt1, MoneyTxt1, ContentTxt1;
     Button gotocalendarBtn;
 
@@ -37,8 +37,8 @@ public class InsertResultActivity extends Activity {
         DayBB = bundle.getString("date");
         AccountBB = bundle.getString("account");
         CategroyBB = bundle.getString("category");
-        MoneyBB = bundle.getInt("money");
-        //MoneyBB = bundle.getString("money");
+        //MoneyBB = bundle.getInt("money");
+        MoneyBB = bundle.getString("money");
         ContentBB = bundle.getString("content");
 
         DayTxt1 = (TextView) findViewById(R.id.dayB);

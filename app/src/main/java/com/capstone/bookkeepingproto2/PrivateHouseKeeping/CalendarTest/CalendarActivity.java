@@ -147,7 +147,8 @@ public class CalendarActivity extends FragmentActivity implements OnClickListene
                         bundle.putString("date", subDate);
                         bundle.putString("account", account[position]);
                         bundle.putString("category", category[position]);
-                        bundle.putInt("money", money[position]);
+                        //bundle.putInt("money", money[position]);
+                        bundle.putString("money", String.valueOf(money[position]));
                         bundle.putString("content", content[position]);
 
                         Intent intent = new Intent(getApplicationContext(), InsertResultActivity.class);
