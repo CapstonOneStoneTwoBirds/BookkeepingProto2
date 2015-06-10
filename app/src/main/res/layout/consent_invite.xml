@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consent Invite"
+            android:layout_marginTop="50sp"
+            android:layout_marginBottom="50sp"
+            android:textSize="40sp"
+            android:id="@+id/textView5"
+            android:layout_alignBottom="@+id/profile_iv"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="370sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="240sp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/profile_iv"
+                android:layout_centerHorizontal="true">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Groupname"
+                        android:layout_marginLeft="25sp"
+                        android:paddingTop="5sp"
+                        android:textSize="15sp"
+                        android:layout_gravity="start"
+                        android:id="@+id/TextView20" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginLeft="20sp"
+                        android:id="@+id/consentinvite_groupname_tv"
+                        android:layout_gravity="center_horizontal" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/TextView202">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Owner"
+                        android:layout_marginLeft="25sp"
+                        android:paddingTop="15sp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/TextView203" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginLeft="20sp"
+                        android:id="@+id/consentinvite_owner_tv"
+                        android:layout_gravity="center_horizontal" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Since"
+                        android:layout_marginLeft="25sp"
+                        android:paddingTop="15sp"
+                        android:textSize="15sp"
+                        android:layout_gravity="left"
+                        android:id="@+id/TextView2011" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginLeft="20sp"
+                        android:id="@+id/consentinvite_since_tv"
+                        android:layout_gravity="center_horizontal" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="members"
+                        android:layout_marginLeft="25sp"
+                        android:paddingTop="15sp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center_horizontal"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginLeft="20sp"
+                        android:id="@+id/consentinvite_member_tv"
+                        android:layout_gravity="center_horizontal" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="120sp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/profile_iv"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:layout_width="120sp"
+                    android:layout_height="200sp"
+                    android:id="@+id/consentinvite_group_iv"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="fitStart"/>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_gravity="center_horizontal">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Consent!"
+                android:textSize="18sp"
+                android:id="@+id/consentinvite_consent_button"
+                android:layout_marginRight="30sp"
+                android:layout_gravity="center_horizontal" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deny!"
+                android:textSize="18sp"
+                android:id="@+id/consentinvite_deny_button"
+                android:layout_marginRight="30sp"
+                android:layout_gravity="right" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

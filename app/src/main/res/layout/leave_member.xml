@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Leave member"
+        android:textSize="40sp"
+        android:id="@+id/textView8"
+        android:layout_x="60dp"
+        android:layout_y="59dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/leave_pwd_et"
+        android:layout_weight="1"
+        android:layout_x="76dp"
+        android:layout_y="146dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PWD"
+        android:textSize="20sp"
+        android:id="@+id/textView9"
+        android:layout_x="32dp"
+        android:layout_y="158dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Leave"
+        android:id="@+id/leave_btn"
+        android:layout_x="161dp"
+        android:layout_y="291dp" />
+</AbsoluteLayout>

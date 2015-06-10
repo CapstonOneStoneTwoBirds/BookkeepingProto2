@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FixInfo"
+            android:layout_marginTop="50sp"
+            android:layout_marginBottom="50sp"
+            android:textSize="40sp"
+            android:id="@+id/textView5"
+            android:layout_alignBottom="@+id/profile_iv"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="370sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="240sp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/profile_iv"
+                android:layout_centerHorizontal="true">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:layout_marginLeft="25sp"
+                        android:paddingTop="5sp"
+                        android:textSize="20sp"
+                        android:layout_gravity="start" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="20sp"
+                        android:id="@+id/fixinfo_email_et"
+                        android:layout_gravity="center_horizontal" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PW"
+                        android:layout_marginLeft="25sp"
+                        android:paddingTop="5sp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center_horizontal" />
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="original"
+                        android:layout_marginLeft="25sp"
+                        android:paddingTop="5sp"
+                        android:textSize="20sp"
+                        android:layout_gravity="left" />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textSize="20sp"
+                    android:ems="7"
+                    android:layout_marginLeft="5sp"
+                    android:id="@+id/fixinfo_pw0_et"
+                    android:layout_gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="new"
+                        android:layout_marginLeft="25sp"
+                        android:paddingTop="5sp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center_horizontal" />
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:textSize="20sp"
+                        android:ems="7"
+                        android:layout_marginLeft="35sp"
+                        android:id="@+id/fixinfo_pw1_et"
+                        android:layout_gravity="right" />
+                </LinearLayout>
+                <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="repeat"
+                        android:layout_marginLeft="25sp"
+                        android:paddingTop="5sp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center_horizontal" />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textSize="20sp"
+                    android:ems="7"
+                    android:layout_marginLeft="17sp"
+                    android:id="@+id/fixinfo_pw2_et"
+                    android:layout_gravity="right" />
+            </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name"
+                        android:layout_marginLeft="21sp"
+                        android:paddingTop="5sp"
+                        android:textSize="20sp"
+                        android:id="@+id/textView6"
+                        android:layout_gravity="center_horizontal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="20sp"
+                        android:id="@+id/fixinfo_name_et"
+                        android:layout_gravity="center_horizontal" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone"
+                        android:layout_marginLeft="18sp"
+                        android:paddingTop="5sp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center_horizontal" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="20sp"
+                        android:id="@+id/fixinfo_phone_et"
+                        android:layout_gravity="center_horizontal" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="120sp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/profile_iv"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:layout_width="120sp"
+                    android:layout_height="200sp"
+                    android:id="@+id/profile_iv"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="fitStart"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Change Image"
+                    android:textSize="24sp"
+                    android:id="@+id/chg_img_btn"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fix!"
+            android:textSize="24sp"
+            android:id="@+id/fix_btn"
+            android:layout_marginRight="30sp"
+            android:layout_gravity="right" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

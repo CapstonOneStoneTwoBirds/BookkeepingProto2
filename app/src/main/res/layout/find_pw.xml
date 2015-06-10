@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Pw"
+        android:textSize="20sp"
+        android:id="@+id/textView10"
+        android:layout_x="78dp"
+        android:layout_y="85dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/findpw_email"
+        android:layout_x="145dp"
+        android:layout_y="152dp"
+        android:ems="7" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/findpw_name"
+        android:layout_x="141dp"
+        android:layout_y="215dp"
+        android:ems="7" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="email"
+        android:textSize="15sp"
+        android:id="@+id/textView11"
+        android:layout_x="78dp"
+        android:layout_y="166dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:textSize="15sp"
+        android:id="@+id/textView12"
+        android:layout_x="78dp"
+        android:layout_y="221dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find!"
+        android:id="@+id/findpw_btn"
+        android:layout_x="181dp"
+        android:layout_y="309dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="It will send encrypted code to your email. "
+        android:id="@+id/textView13"
+        android:layout_x="82dp"
+        android:layout_y="114dp" />
+</AbsoluteLayout>

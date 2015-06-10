@@ -25,4 +25,20 @@
         android:text="자동로그인해제"
         android:layout_x="128dp"
         android:layout_y="131dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원정보수정"
+        android:id="@+id/fix_info_btn"
+        android:layout_x="148dp"
+        android:layout_y="436dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원 탈퇴"
+        android:id="@+id/leave_btn"
+        android:layout_x="159dp"
+        android:layout_y="378dp" />
 </AbsoluteLayout>

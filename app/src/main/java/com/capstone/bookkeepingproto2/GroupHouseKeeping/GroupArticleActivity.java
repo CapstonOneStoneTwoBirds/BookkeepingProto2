@@ -1,14 +1,12 @@
 package com.capstone.bookkeepingproto2.GroupHouseKeeping;
 
-import android.app.Activity;
-import android.app.DownloadManager;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -30,7 +28,6 @@ import java.util.ArrayList;
  * Created by New on 2015-05-13.
  */
 public class GroupArticleActivity extends ActionBarActivity {
-
     String _id;
 
     @Override
@@ -60,10 +57,10 @@ public class GroupArticleActivity extends ActionBarActivity {
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 try {
                     if(responseBody != null){
-                        JSONArray articles = new JSONArray(new String(responseBody));
+                        final JSONArray articles = new JSONArray(new String(responseBody));
 
-                        ArrayList<String> arrListInsert = new ArrayList<String>();
-                        ArrayAdapter<String> adapterInsert = new ArrayAdapter<String>(getApplicationContext(), R.layout.calendertext, arrListInsert);
+                        ArrayList<String> arrListInsert = new ArrayList();
+                        ArrayAdapter<String> adapterInsert = new ArrayAdapter(getApplicationContext(), R.layout.calendertext, arrListInsert);
                         ListView listViewInsert = (ListView)findViewById(R.id.group_article_list);
                         //arrListInsert.add(result);
                         for (int i=0;i < articles.length();i++) {
@@ -71,6 +68,25 @@ public class GroupArticleActivity extends ActionBarActivity {
                             arrListInsert.add(got.get("title").toString()+" / "+got.get("price").toString()+" / "+got.get("content").toString());
                         }
                         listViewInsert.setAdapter(adapterInsert);
+
+                        listViewInsert.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                try {
+                                    JSONObject obj = new JSONObject(articles.get(position).toString());
+
+                                    Intent intent = new Intent(getApplicationContext(), GroupArticleCActivity.class );
+                                    intent.putExtra("jsonobject", obj.toString());
+                                    startActivity(intent);
+                                    /*
+                                    Toast toastView = Toast.makeText(getApplicationContext(),
+                                            obj.get("title").toString(), Toast.LENGTH_LONG);
+                                    toastView.setGravity(Gravity.CENTER, 40, 25);
+                                    toastView.show();
+                                    */
+                                }catch(JSONException e){}
+                            }
+                        });
 
                         System.out.println("Articles : " + articles);
                     }

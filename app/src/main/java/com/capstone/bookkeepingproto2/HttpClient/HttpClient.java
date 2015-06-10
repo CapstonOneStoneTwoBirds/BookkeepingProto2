@@ -12,7 +12,7 @@ import org.apache.http.HttpEntity;
  * Created by New on 2015-04-16.
  */
 public class HttpClient {
-    private static final String BASE_URL = "http://112.187.166.183:3000/";
+    private static final String BASE_URL = "http://192.168.0.9:3000/";
 
     private static AsyncHttpClient client = new AsyncHttpClient();
 
@@ -28,6 +28,10 @@ public class HttpClient {
 
     public static void post(Context context, String url, HttpEntity entity, AsyncHttpResponseHandler responseHandler){
         client.post(context, getAbsoluteUrl(url), entity, "application/json", responseHandler);
+    }
+
+    public static void post(Context context, String url, HttpEntity entity, String contentType, AsyncHttpResponseHandler responseHandler){
+        client.post(context, getAbsoluteUrl(url), entity, contentType, responseHandler);
     }
 
 

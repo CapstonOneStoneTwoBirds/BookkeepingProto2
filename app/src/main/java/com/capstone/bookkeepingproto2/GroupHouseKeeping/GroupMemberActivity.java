@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -17,6 +18,7 @@ import com.loopj.android.http.RequestParams;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -51,17 +53,37 @@ public class GroupMemberActivity extends ActionBarActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 try {
-                    JSONArray member = new JSONArray(new String(responseBody));
+                    final JSONArray member = new JSONArray(new String(responseBody));
 
-                    ArrayList<String> arrListInsert = new ArrayList<String>();
-                    ArrayAdapter<String> adapterInsert = new ArrayAdapter<String>(getApplicationContext(), R.layout.calendertext, arrListInsert);
+                    ArrayList<String> arrListInsert = new ArrayList();
+                    ArrayAdapter<String> adapterInsert = new ArrayAdapter(getApplicationContext(), R.layout.calendertext, arrListInsert);
                     ListView listViewInsert = (ListView) findViewById(R.id.group_member_list);
                     //arrListInsert.add(result);
                     for (int i = 0; i < member.length(); i++) {
                         JSONObject got = new JSONObject(member.get(i).toString());
-                        arrListInsert.add(got.get("ownership").toString() + " / " + got.get("member").toString());
+                        arrListInsert.add(got.get("ownership").toString() + " / " + got.get("name").toString());
                     }
                     listViewInsert.setAdapter(adapterInsert);
+
+                    listViewInsert.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            try {
+                                JSONObject obj = new JSONObject(member.get(position).toString());
+
+                                Intent intent = new Intent(getApplicationContext(), GroupMemberInfoActivity.class);
+                                intent.putExtra("jsonobject", obj.toString());
+                                startActivity(intent);
+                                    /*
+                                    Toast toastView = Toast.makeText(getApplicationContext(),
+                                            obj.get("title").toString(), Toast.LENGTH_LONG);
+                                    toastView.setGravity(Gravity.CENTER, 40, 25);
+                                    toastView.show();
+                                    */
+                            } catch (JSONException e) {
+                            }
+                        }
+                    });
 
                     System.out.println("getMemberList Success 1");
                     System.out.println("members : " + member);

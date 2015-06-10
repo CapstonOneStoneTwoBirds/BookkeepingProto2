@@ -8,11 +8,16 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="com.capstone.gcm.permission.C2D_MESSAGE" />
 
     <application
         android:allowBackup="true"
@@ -39,6 +44,34 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".GroupHouseKeeping.ConsentInviteActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".LoginTest.ChangePwActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".LoginTest.FindPwActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".LoginTest.LeaveActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".GroupHouseKeeping.GroupMemberInfoActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".GroupHouseKeeping.GroupCommentWriteActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".GroupHouseKeeping.GroupArticleCActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
             android:name=".GroupHouseKeeping.CreateGroupActivity"
             android:label="@string/app_name" >
         </activity>
@@ -49,6 +82,10 @@
         <activity
             android:name=".GroupHouseKeeping.GroupArticleActivity"
             android:label="Group Article" >
+        </activity>
+        <activity
+            android:name=".GroupHouseKeeping.GroupAnnounceCActivity"
+            android:label="Group Announce" >
         </activity>
         <activity
             android:name=".GroupHouseKeeping.GroupAnnounceActivity"
@@ -68,6 +105,10 @@
         </activity>
         <activity
             android:name=".GroupHouseKeeping.WriteMemberActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".LoginTest.FixInfoActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -114,6 +155,20 @@
             android:name=".OCR.abbyy.ocrsdk.android.OCRResultsActivity"
             android:label="@string/app_name" >
         </activity>
+        <receiver
+            android:name=".Gcm.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.capstone.gcm" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".Gcm.GcmIntentService" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

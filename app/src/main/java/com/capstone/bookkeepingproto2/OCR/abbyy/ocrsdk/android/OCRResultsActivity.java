@@ -93,9 +93,11 @@ public class OCRResultsActivity extends Activity {
             System.out.println("Confirm year : " + date.get(0));
             System.out.println("Confirm month : " + date.get(1));
             System.out.println("Confirm day : " + date.get(2));
+
+            System.out.println("Confirm "+temp);
+            System.out.println("Confirm "+date.get(0)+" / "+date.get(1)+" / "+date.get(2));
         }
-        System.out.println("Confirm "+temp);
-        System.out.println("Confirm "+date.get(0)+" / "+date.get(1)+" / "+date.get(2));
+
 
         // temp ---> 가격 + 결제방식 토스트
         /*
